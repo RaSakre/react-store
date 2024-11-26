@@ -1,0 +1,45 @@
+.loginWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.loginForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.loginForm input {
+	width: 250px;
+	background-color: #f4f4f4;
+	padding: 10px 10px;
+	border-radius: 10px;
+}
+
+.loginForm input::placeholder {
+	font-size: 12px;
+}
+
+.loginButton {
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 10px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.toRegisterButton {
+	text-align: center;
+	width: 240px;
+	background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+}

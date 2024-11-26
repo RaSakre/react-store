@@ -1,0 +1,73 @@
+.container {
+	position: relative;
+	width: 1440px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 906px;
+	margin: 0 auto;
+}
+
+
+.imageWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 35px;
+}
+
+.vertical {
+	object-fit: contain;
+	width: 392px;
+	height: 756px;
+	border-radius: 20px;
+	background-color: #E0E0E0;
+}
+
+.horizontal {
+	width: 426px;
+	height: max-content;
+	border-radius: 20px;
+}
+
+.text {
+	font-family: 'Poppins', sans-serif;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-transform: uppercase;
+	transform: translate(-50%, -50%);
+	color: black; /* Цвет текста */
+	font-size: 91px; /* Размер шрифта */
+	text-align: center
+}
+
+.text p:last-child {
+	font-size: 24px;
+}
+
+.button {
+	position: absolute;
+	top: 67%;
+	width: 207px;
+	border-radius: 10px;
+	padding: 20px 0px;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+}
+
+.brands {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px 15px;
+}
+
+.brands img {
+	width: 196px;
+	height: 98px;
+	object-fit: contain;
+}

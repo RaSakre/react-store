@@ -1,0 +1,70 @@
+.basketSection {
+	display: flex;
+	justify-content: space-around;
+}
+
+.basketWrapper {
+	display: flex;
+	gap: 15px;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.basketProduct {
+	position: relative;
+	display: inline-flex;
+	padding: 15px 15px;
+	background-color: aliceblue;
+	max-width: 600px;
+	border-radius: 10px;
+}
+
+.basketImage {
+  width: 30%;
+  object-fit: cover;
+}
+
+.basketText {
+	font-size: 25px;
+	margin-left: 20px;
+}
+
+.basketText p:not(:last-child){
+	margin-bottom: 30px;
+}
+
+.deleteIcon {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+	width: 30px;
+}
+
+.basketPrice {
+	display: flex;
+	margin-left: 10rem;
+	gap: 15px;
+	flex-direction: column;
+	font-size: 30px;
+	background-color: aliceblue;
+	height: max-content;
+	padding: 30px 30px;
+	border-radius: 10px;
+}
+
+.basketBuy {
+	background-color: khaki;
+	padding: 10px 20px;
+	height: auto;
+	border-radius: 10px;
+}
+
+.basketBuy:disabled {
+	background-color: gray;
+}
+
+.modalImage {
+	justify-self: center;
+	width: 130px;
+}

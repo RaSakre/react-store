@@ -1,0 +1,149 @@
+{
+  "clothes": [
+    {
+      "id": "1",
+      "description": "Тимберленды KENZO",
+      "image": "https://basket-12.wbcontent.net/vol1755/part175594/175594990/images/c516x688/1.webp",
+      "price": "120.55$"
+    },
+    {
+      "id": "2",
+      "description": "Водолазка Giorgio Armani",
+      "image": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/z/02/66812049-6e41-41d5-8848-fc43b2bde82d.jpg",
+      "price": "230$"
+    },
+    {
+      "id": "3",
+      "description": "Штаны Balmain",
+      "image": "https://basket-12.wbbasket.ru/vol1895/part189549/189549196/images/big/18.webp",
+      "price": "405$"
+    },
+    {
+      "id": "4",
+      "description": "Кофта Tom Ford",
+      "image": "https://cf-product.clouty.ru/link_aHR0cHM6Ly9hLmxtY2RuLnJ1L3BpL2ltZzYwMHg4NjYvTy9OL09OMDEzRU1GTEVGNF85MjA0NjIwXzFfdjFfMnguanBn",
+      "price": "180.70$"
+    },
+    {
+      "id": "5",
+      "description": "Штаны Giorgio Armani",
+      "image": "https://ir.ozone.ru/s3/multimedia-1-u/c1000/6926141802.jpg",
+      "price": "330$"
+    },
+    {
+      "id": "6",
+      "description": "Штаны POLO Ralph Lauren",
+      "image": "https://m.media-amazon.com/images/I/61WxcYCEeJL._SX700_.jpg",
+      "price": "350$"
+    },
+    {
+      "id": "7",
+      "description": "Костюм Georgio Armani",
+      "image": "https://a.lmcdn.ru/product/A/L/AL006EMLDN48_4037349_6_v1.jpg",
+      "price": "1250$"
+    },
+    {
+      "id": "8",
+      "description": "Кофта POLO",
+      "image": "https://a.lmcdn.ru/img600x866/R/T/RTLAAM913001_14765703_1_v1_2x.jpg",
+      "price": "480.40$"
+    },
+    {
+      "id": "9",
+      "description": "Штаны Balmain",
+      "image": "https://media.balmain.com/image/upload/f_auto,q_auto,dpr_auto/w_auto/sfcc/balmain/hi-res/CH1PM032VE300FAC?_i=AG",
+      "price": "560.55$"
+    },
+    {
+      "id": "10",
+      "description": "Кожаная куртка Tom Ford",
+      "image": "https://a.lmcdn.ru/product/R/T/RTLAAC686302_13694808_1_v1_2x.jpg",
+      "price": "700$"
+    },
+    {
+      "id": "11",
+      "description": "Шорты KENZO",
+      "image": "https://basket-10.wbbasket.ru/vol1520/part152093/152093721/images/big/1.webp",
+      "price": "200$"
+    },
+    {
+      "id": "12",
+      "description": "Кожаная куртка KENZO",
+      "image": "https://a.lmcdn.ru/img600x866/S/P/SP014EMGFAK7_9208622_1_v1.jpg",
+      "price": "350$"
+    },
+    {
+      "id": "13",
+      "description": "Ботинки челси Giorgio Armani",
+      "image": "https://usmall.ru/image/000/00/00/15599f0e4b9ff5b61458362a733c0d78.jpeg",
+      "price": "560.90$"
+    },
+    {
+      "id": "14",
+      "description": "Кожаные лоферы Balmain",
+      "image": "https://img.vitkac.com/uploads/product_thumb/BUTY%20J1339%20LCL216N-1N001/up/2.jpg",
+      "price": "660$"
+    },
+    {
+      "id": "15",
+      "description": "Футболка POLO Ralph Lauren",
+      "image": "https://www.optimized-rlmedia.io/is/image/PoloGSI/s7-1320153_alternate10?$plpDeskRFAlt$",
+      "price": "150$"
+    }
+  ],
+  "basket": [
+    {
+      "id": "3",
+      "description": "Штаны Balmain",
+      "price": "405$",
+      "image": "https://basket-12.wbbasket.ru/vol1895/part189549/189549196/images/big/18.webp"
+    },
+    {
+      "id": "2",
+      "description": "Водолазка Giorgio Armani",
+      "price": "230$",
+      "image": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/z/02/66812049-6e41-41d5-8848-fc43b2bde82d.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "07e1",
+      "data": {
+        "email": "seventeen@gmail.com",
+        "login": "RaSakre",
+        "password": "qwerty123"
+      }
+    },
+    {
+      "id": "3292",
+      "data": {
+        "email": "test@mail.ru",
+        "login": "sakre_e",
+        "password": "qwerty123"
+      }
+    }
+  ],
+  "userOrders": [
+    {
+      "id": "9df5",
+      "data": {
+        "id": 1729943207988,
+        "items": [
+          {
+            "id": "1",
+            "description": "Тимберленды KENZO",
+            "price": "120.55$",
+            "image": "https://basket-12.wbcontent.net/vol1755/part175594/175594990/images/c516x688/1.webp"
+          },
+          {
+            "id": "2",
+            "description": "Водолазка Giorgio Armani",
+            "price": "230$",
+            "image": "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/z/02/66812049-6e41-41d5-8848-fc43b2bde82d.jpg"
+          }
+        ],
+        "createdAt": "26.10.202414:46:47"
+      }
+    }
+  ]
+}

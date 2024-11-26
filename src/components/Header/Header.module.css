@@ -1,0 +1,76 @@
+.header {
+	margin-bottom: 50px;
+}
+
+.logo {
+	width: 150px;
+}
+
+.headerWrapper {
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerMenu {
+	display: flex;
+}
+
+.headerMenu li:not(:last-child) {
+	margin-right: 20px;
+}
+
+.headerButtons {
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	gap: 10px;
+}
+
+.headerLogin {
+	background-color: #f4f4f4;
+	padding: 10px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	width: 70%;
+	text-align: center;
+	color: #484848;
+}
+
+.headerButtons p {
+	position: relative;
+	top: 20px ;
+	right: -10px;
+}
+
+.basketLink {
+	position: relative;
+	display: inline-flex;
+}
+
+.basketLink::before {
+	content: "";
+	position: absolute;
+	top: 69%;
+	left: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #93e198;
+}
+
+.headerButtons img {
+	margin-right: 10px;
+	width: 30px;
+}
+
+.link {
+	font-size: 16px;
+	color: #484848;
+}
+
+.active {
+	text-decoration: underline;
+}
+
+
