@@ -1,11 +1,17 @@
+type Props = {
+	key: number,
+	image: string,
+	description: string,
+	price: number
 
+}
 
-export const OrderItem = (props:any) => {
+export const OrderItem = ({ image, description, price}:Props) => {
 	return (
-		<div key={props.order}>
+		<div >
 			<li>
-				<img src={props.image} alt="" />
-				{props.description} - {props.price}₽
+				<img src={image} alt="" />
+				{description} - {price}₽
 			</li>
 	</div>
 

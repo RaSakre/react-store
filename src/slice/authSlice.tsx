@@ -12,12 +12,13 @@ interface ILoginData {
 }
 
 interface IUser{
-	name:string;
+	login:string;
 	email:string;
 }
 
 interface IAuthState {
 	isRegistered: boolean;
+	error: string;
 	isAuth: boolean;
 	registerData: IRegisterData;
 	loginData: ILoginData;
@@ -27,6 +28,7 @@ interface IAuthState {
 
 const initialState:IAuthState = {
 	isRegistered: false,
+	error: '',
 	isAuth: false,
 	registerData: {
 		email: "",
@@ -38,7 +40,7 @@ const initialState:IAuthState = {
 		password: ""
 	},
 	userInfo: {
-		name: '',
+		login: '',
 		email: '',
 	}
 }
@@ -57,20 +59,39 @@ export const registerThunk = createAsyncThunk("auth/register", async (data:IRegi
 	return regData.then((data: any) => data)
 })
 
-export const userThunk = createAsyncThunk("auth/login", async (data: ILoginData) => {
-  const response = await fetch('http://localhost:3001/users');
-  const users = await response.json();
 
-  // Проверяем, есть ли пользователь с указанными логином и паролем
-  const user = users.find((user: { data: { login: string; password: string; }; }) => 
-    user.data.login === data.login && user.data.password === data.password
-  );
+const generateToken = () => {
+  return crypto.randomUUID();
+};
+export const userThunk = createAsyncThunk(
+  "auth/login",
+  async (data: ILoginData) => {
+    const response = await fetch("http://localhost:3001/users");
 
-  if (!user) {
-    throw new Error('Неверный логин или пароль'); // Обработка ошибки
+    if (!response.ok) {
+      throw new Error("Ошибка при получении пользователей");
+    }
+    const users = await response.json();
+    const user = users.find(
+      (user: { data: { login: string; password: string } }) =>
+        user.data.login === data.login && user.data.password === data.password
+    );
+		if(user) {
+		const token = generateToken();
+    localStorage.setItem("token", token);
+		localStorage.setItem("userEmail", user.data.email)
+		localStorage.setItem("userName", user.data.login);  
+		}
+
+    if (!user) {
+      throw new Error("Неверный логин или пароль");
+    }
+
+    
+    return user;
   }
-  return user; // Возвращаем пользователя
-});
+);
+
 
 const authSlice = createSlice({
 	name: "auth",
@@ -81,6 +102,17 @@ const authSlice = createSlice({
 		},
 		setLoginData: (state, action:PayloadAction<ILoginData>) => {
 			state.loginData = action.payload
+		},
+		restoreUser: (state, action: PayloadAction<{ email: string ; login: string }>) => {
+      state.isAuth = true;
+      state.userInfo = action.payload;
+    },
+		clearUser: (state) => {
+			state.isAuth = false;
+			state.userInfo = {
+				login: '',
+				email: '',
+			}
 		}
 	},
 	extraReducers: (builder) => {
@@ -98,16 +130,13 @@ const authSlice = createSlice({
 				state.isAuth = true;
 				state.userInfo = {
           email: action.payload.data.email,
-          name: action.payload.data.login,
+          login: action.payload.data.login,
         };
 		})
-		.addCase(userThunk.rejected, (state, action) => {
-			console.error(action.error.message);
-		});
 }
 })
 
 
 
-export const { setRegisterData, setLoginData } = authSlice.actions;
+export const { setRegisterData, setLoginData, restoreUser, clearUser } = authSlice.actions;
 export default authSlice.reducer;

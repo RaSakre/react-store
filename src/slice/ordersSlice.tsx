@@ -2,12 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ICloth } from "./storeSlice";
 
 interface IOrder {
-	id: number;
 	items: ICloth[];
 	createdAt:string;
 }
 
-interface IResponse {
+export interface IResponse {
 	id:string;
 	data: IOrder;
 }
@@ -37,7 +36,10 @@ export const fetchUserOrders = createAsyncThunk(
 	'orders/fetchUserOrders',
 	async () => {
 		const response = await fetch('http://localhost:3001/userOrders')
-		return response.json().then(data => data)
+		return response.json().then((data):IResponse[] => {
+			return data
+		}
+		)
 	}
 )
 
@@ -45,9 +47,6 @@ const ordersSlice = createSlice({
 	name: "orders",
 	initialState,
 	reducers: {
-		addOrder: (state, action) => {
-      state.userOrders.push(action.payload); // Добавляем новый заказ
-    },
 	},
 	extraReducers: (builder) => {
     builder
@@ -55,11 +54,10 @@ const ordersSlice = createSlice({
         state.userOrders = action.payload
       })
       .addCase(fetchUserOrders.rejected, (state, action) => {
-        
         console.error(action.error.message);
-      });
+      })
   },
 })
 
-export const { addOrder } = ordersSlice.actions;
+
 export default ordersSlice.reducer;

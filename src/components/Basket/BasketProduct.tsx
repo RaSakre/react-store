@@ -1,9 +1,15 @@
-import styles from './Basket.module.css'
-import deleteIcon from '../../images/BasketProduct/delete.svg'
+import { BasketProductUI } from './BasketProductUI'
 import { useDispatch } from 'src/utils/store'
 import { fetchBasket } from 'src/slice/storeSlice'
 
-export const BasketProduct = (props:any) => {
+type Props = {
+	id: string
+	description: string
+	price: string
+	image: string
+}
+
+export const BasketProduct = (props:Props) => {
 	const dispatch = useDispatch()
 	const handleDeleteItem = () => {
 		fetch(`http://localhost:3001/basket/${props.id}`, {
@@ -16,15 +22,12 @@ export const BasketProduct = (props:any) => {
 		})
 	}
 	return (
-		<div className={styles.basketProduct}>
-			<img className={styles.basketImage} src={props.image} alt="" />
-			<div className={styles.basketText}>
-				<p>{props.description}</p>
-				<p>{props.price}</p>
-			</div>
-			<button onClick={handleDeleteItem}>
-				<img className={styles.deleteIcon} src={deleteIcon} alt="" />
-			</button>
-		</div>
+		<BasketProductUI
+		id={props.id}
+		description={props.description}
+		price={props.price}
+		handleDeleteItem={handleDeleteItem}
+		image={props.image}
+		/>
 	)
 }
