@@ -1,26 +1,27 @@
-import { useSelector, useDispatch } from "src/utils/store"
-import { OrderItem } from "./Orders/OrderItem"
-import { useEffect } from "react"
-import { fetchUserOrders, IResponse } from "src/slice/ordersSlice"
+import { useSelector, useDispatch } from "src/utils/store";
+import { OrderItem } from "./Orders/OrderItem";
+import { useEffect } from "react";
+import { fetchUserOrders, IResponse } from "src/slice/ordersSlice";
+import styles from "./Profile.module.css";
 
-type TOrder  = {
-	orders: IResponse[]
-}
+type TOrder = {
+  orders: IResponse[];
+};
 
-const ProfileUI = (props:TOrder) => {
-	return (
-  <div>
+const ProfileUI = (props: TOrder) => {
+  return (
+    <div className={styles.profilePage}>
       {props.orders.length === 0 ? (
         <div>
           <p>У вас нет заказов</p>
         </div>
       ) : (
-        props.orders.map((order:any) => (
+        props.orders.map((order: any) => (
           <div key={order.id}>
             <h3>Заказ #{order.id}</h3>
             <h4>Товары:</h4>
-            <ul>
-              {order.data?.items?.map((item:any, index:number) => (
+            <ul className={styles.profileOrder}>
+              {order.data?.items?.map((item: any, index: number) => (
                 <OrderItem
                   key={index}
                   image={item.image}
@@ -32,19 +33,17 @@ const ProfileUI = (props:TOrder) => {
           </div>
         ))
       )}
-	</div>
-	)
-}
+    </div>
+  );
+};
 
 export const Profile = () => {
-	const dispatch = useDispatch()
-	useEffect(() => {
-		dispatch(fetchUserOrders())
-	},[dispatch])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserOrders());
+  }, [dispatch]);
 
-	const orders = useSelector(state => state.orders.userOrders) || []
+  const orders = useSelector((state) => state.orders.userOrders) || [];
 
-	return (
-		<ProfileUI orders={orders} />
-  );
-}
+  return <ProfileUI orders={orders} />;
+};

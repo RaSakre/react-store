@@ -30,7 +30,7 @@ export const BasketUI = ({basket, totalPrice, isAuth, handleCloseModal, handleMo
       <div className={styles.basketPrice}>
         <p>Стоимость товаров: {totalPrice}$</p>
         <button
-          disabled={!isAuth}
+          disabled={!isAuth || basket.length === 0}
           className={styles.basketBuy}
           onClick={handleModalAndOrder}
         >

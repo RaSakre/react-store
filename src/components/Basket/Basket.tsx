@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "src/utils/store";
 import { useState } from "react";
 import { BasketUI } from "./BasketUI";
 import { orderThunk } from "src/slice/ordersSlice";
+import { fetchBasket } from "src/slice/storeSlice";
 
 export const Basket = () => {
   const basket = useSelector((state) => state.webStore.basketProducts);
@@ -17,16 +18,28 @@ export const Basket = () => {
     dispatch(orderThunk(newOrder));
     setIsModalOpen(true);
   };
-
-  const handleCloseModal = () => {
+  const handleCloseModal = async () => {
     setIsModalOpen(false);
+    try {
+      const response = await fetch("http://localhost:3001/basket");
+      const basketItems = await response.json();
+      await Promise.all(
+        basketItems.map((item: { id: string }) =>
+          fetch(`http://localhost:3001/basket/${item.id}`, {
+            method: "DELETE",
+          })
+        )
+      );
+      dispatch(fetchBasket());
+    } catch (error) {
+      console.error("Ошибка при очистке корзины:", error);
+    }
   };
-
   const isAuth = useSelector((state) => state.auth.isAuth);
   const calculateTotalPrice = () => {
     return basket.reduce((total, product) => {
       const price = parseFloat(product.price.replace("$", ""));
-      return total + price;
+      return Math.ceil(total + price);
     }, 0);
   };
 
