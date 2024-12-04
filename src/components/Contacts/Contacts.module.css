@@ -1,0 +1,16 @@
+.contactsWrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 79vh;
+}
+
+.icons {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	gap: 10px;
+}
+
+.footerRights {
+	text-align: center;
+}

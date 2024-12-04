@@ -12,6 +12,7 @@ import { Login } from "./components/Auth/Login";
 import { Register } from "./components/Auth/Register";
 import { Profile } from "./components/Profile/Profile";
 import { restoreUser } from "./slice/authSlice";
+import { Contacts } from "./components/Contacts/Contacts";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
     </>
   );
